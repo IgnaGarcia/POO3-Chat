@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using server.connection;
+using System.Data;
 
 namespace server.message
 {
@@ -20,5 +21,10 @@ namespace server.message
             return 0;
         }
 
+        private Message toMessage(IDataRecord result)
+        {
+            //TODO
+            return null;
+        }
     }
 }

@@ -7,6 +7,8 @@ namespace server.connection
     {
         static NpgsqlConnection sqlConnection = null;
         protected NpgsqlDataReader reader;
+        protected NpgsqlCommand command;
+        protected IDataRecord result;
 
         public ConnectionProvider()
         {

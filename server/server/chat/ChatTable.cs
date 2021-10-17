@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using server.connection;
+using System.Data;
 
 namespace server.chat
 {
@@ -24,6 +25,12 @@ namespace server.chat
         {
             //TODO
             return 0;
+        }
+
+        private Chat toChat(IDataRecord result)
+        {
+            //TODO
+            return null;
         }
 
     }

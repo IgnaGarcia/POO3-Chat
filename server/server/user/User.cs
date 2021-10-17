@@ -21,5 +21,9 @@ namespace server.user
         {
             return "User(id=" + id + "; name=" + name + ");";
         }
+
+        public string getName() { return name; }
+
+        public int getId() { return id; }
     }
 }
