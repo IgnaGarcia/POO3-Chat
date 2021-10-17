@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace server.user
+﻿namespace server.user
 {
     internal class User
     {
-        private int id;
+        private int? id;
         private string name;
 
         public User(int id, string name)
@@ -17,13 +11,19 @@ namespace server.user
             this.name = name;
         }
 
-        public string toString()
+        public User(string name)
+        {
+            this.id = null;
+            this.name = name;
+        }
+
+        public string ToString()
         {
             return "User(id=" + id + "; name=" + name + ");";
         }
 
         public string getName() { return name; }
 
-        public int getId() { return id; }
+        public int getId() { return (int)id; }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace server.message
+﻿namespace server.message
 {
     internal class Message
     {
@@ -32,7 +26,7 @@ namespace server.message
             this.created_date = null;
         }
 
-        public string toString()
+        public string ToString()
         {
             return "Message(id="+id + "; chat=" + chat_id + "; from="+from_id+"; date="+created_date+"; message="+message+");";
         }

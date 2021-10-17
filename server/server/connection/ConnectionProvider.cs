@@ -5,52 +5,28 @@ namespace server.connection
 {
     internal class ConnectionProvider
     {
-        static NpgsqlConnection sqlConnection = null;
         protected NpgsqlDataReader reader;
         protected NpgsqlCommand command;
         protected IDataRecord result;
 
-        public ConnectionProvider()
-        {
-            if (sqlConnection == null)
-            {
-                try
-                {
-                    sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
-                    if (sqlConnection.State != ConnectionState.Open)
-                    {
-                        sqlConnection.Open();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-            }
-        }
-
-        public void ejecute(string query)
-        {
-            NpgsqlCommand command = new NpgsqlCommand(query, sqlConnection);
-
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public void finish()
-        {
-            sqlConnection.Close();
-        }
+        public ConnectionProvider() { }
 
         public NpgsqlConnection getSqlConnection()
         {
-            return sqlConnection;
+            try
+            {
+                NpgsqlConnection sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
+                if (sqlConnection.State != ConnectionState.Open)
+                {
+                    sqlConnection.Open();
+                }
+                return sqlConnection;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
     }
 }

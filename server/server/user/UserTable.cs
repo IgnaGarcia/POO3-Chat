@@ -11,41 +11,79 @@ namespace server.user
         public List<User> getAll()
         {
             List<User> list = new List<User>();
-            string query = "SELECT * FROM \"user\"";
+            string query = "SELECT * FROM \"user\";";
             command = new NpgsqlCommand(query, getSqlConnection());
 
-            reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                list.Add(toUser((IDataRecord)reader));
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(toUser(reader));
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return list;
         }
 
-        public User getById(int id)
+        public User? getById(int id)
         {
-            //TODO
+            List<User> list = new List<User>();
+            string query = "SELECT * FROM \"user\" WHERE \"id\" = " + id + ";";
+            command = new NpgsqlCommand(query, getSqlConnection());
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return toUser(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return null;
         }
-        public User getByName(string name)
+        public User? getByName(string name)
         {
-            //TODO
+            string query = "SELECT * FROM \"user\" WHERE \"name\" ILIKE '" + name + "';";
+            command = new NpgsqlCommand(query, getSqlConnection());
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return toUser(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return null;
         }
 
         public int create(User user)
         {
-            /*string query = "INSERT INTO \"user\"(name) VALUES (" + user.getName() + ")";
+            string query = "INSERT INTO \"user\"(name) VALUES ('" + user.getName() + "');";
             command = new NpgsqlCommand(query, getSqlConnection());
-
-            reader = command.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                result = (IDataRecord)reader;
-                return result.GetValue(0);
-            }*/
-            //TODO
-            return 0;
+                int rowsAffected = command.ExecuteNonQuery();
+                return rowsAffected;
+            } 
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return -1;
         }
 
         private User toUser(IDataRecord result)

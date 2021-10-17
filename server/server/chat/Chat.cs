@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace server.chat
+﻿namespace server.chat
 {
     internal class Chat
     {
@@ -23,7 +17,7 @@ namespace server.chat
             this.name = name;
         }
 
-        public string toString()
+        public string ToString()
         {
             return "Chat(id=" + id + "; name=" + name + ");";
         }
