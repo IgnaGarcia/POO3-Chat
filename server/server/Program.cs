@@ -1,11 +1,33 @@
-﻿using server.user;
+﻿/*
+using server.chat;
+using server.message;
+using server.user;
 
+// getAll users and getById from DB
 UserTable userT = new UserTable();
+List<User> listUser = userT.getAll();
+listUser.ForEach(x => Console.WriteLine(x.ToString()));
+Console.WriteLine(userT.getById(1).ToString());
 
-List<User> list = userT.getAll();
-list.ForEach(x => Console.WriteLine(x.ToString()));
+// getAll chats and getById from DB
+ChatTable chatT = new ChatTable();
+List<Chat> listChat = chatT.getAll();
+listChat.ForEach(x => Console.WriteLine(x.ToString()));
+Console.WriteLine(chatT.getById(1).ToString());
 
-Console.WriteLine(userT.create(new User("dai")));
+// getMessages by Chat ID and create from DB
+MessageTable messageT = new MessageTable();
 
-Console.WriteLine(userT.getById(2).ToString());
-Console.WriteLine(userT.getByName("pablin").ToString());
+//messageT.create(new Message(2, listUser[0].getId(), "hola don pepito"));
+//messageT.create(new Message(2, listUser[1].getId(), "hola don jose"));
+//messageT.create(new Message(2, listUser[0].getId(), "paso uds ya por casa?"));
+//messageT.create(new Message(2, listUser[1].getId(), "por su casa yo pase"));
+
+List<Message> listMessage = messageT.getByChat(2);
+listMessage.ForEach(x => Console.WriteLine(x.ToString()));
+*/
+
+using server.server;
+
+TcpIp server = new TcpIp();
+server.listen();

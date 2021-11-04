@@ -22,5 +22,8 @@
             return "Chat(id=" + id + "; name=" + name + ");";
         }
 
+        public string getName() { return name; }
+
+        public int getId() { return (int)id; }
     }
 }

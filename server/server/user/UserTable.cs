@@ -32,7 +32,6 @@ namespace server.user
 
         public User? getById(int id)
         {
-            List<User> list = new List<User>();
             string query = "SELECT * FROM \"user\" WHERE \"id\" = " + id + ";";
             command = new NpgsqlCommand(query, getSqlConnection());
 

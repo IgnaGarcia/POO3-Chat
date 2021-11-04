@@ -30,5 +30,9 @@
         {
             return "Message(id="+id + "; chat=" + chat_id + "; from="+from_id+"; date="+created_date+"; message="+message+");";
         }
+
+        public int getChatId() { return chat_id; }
+        public int getFromId() {  return from_id; }
+        public string getMessage() {  return message; }
     }
 }
