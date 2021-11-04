@@ -29,5 +29,5 @@ listMessage.ForEach(x => Console.WriteLine(x.ToString()));
 
 using server.server;
 
-TcpIp server = new TcpIp();
-server.listen();
+ChatProtocol server = new ChatProtocol();
+server.escucha();
