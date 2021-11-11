@@ -30,4 +30,4 @@ listMessage.ForEach(x => Console.WriteLine(x.ToString()));
 using server.server;
 
 ChatProtocol server = new ChatProtocol();
-server.escucha();
+server.listen();

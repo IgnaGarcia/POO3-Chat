@@ -14,69 +14,59 @@ namespace server.server
     public class ChatProtocol
     {
 
-            List<Thread> thread;
+        List<Thread> threads;
 
-            public void escucha()
-            {
-                thread = new List<Thread>();
+        public void listen()
+        {
+            threads = new List<Thread>();
 
-                //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                IPHostEntry ipHostInfo = Dns.GetHostEntry("localhost");
-            Console.WriteLine(ipHostInfo);
-                IPAddress ipAddress = ipHostInfo.AddressList[0];
-            Console.WriteLine(ipAddress);
+            IPHostEntry ipHostInfo = Dns.GetHostEntry("localhost");
+            IPAddress ipAddress = ipHostInfo.AddressList[0];
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
-            Console.WriteLine(localEndPoint);
-
 
             try
             {
-
                 Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 listener.Bind(localEndPoint);
                 listener.Listen(10);
 
                 Console.WriteLine("Waiting for a connection...");
 
-                Socket cliente;
-
-
+                Socket clientSocket;
                 while (true)
                 {
-                    cliente = listener.Accept();
-                    Thread hilo = new Thread(disparaCliente);
-                    hilo.Start(cliente);
-                    thread.Add(hilo);
+                    clientSocket = listener.Accept();
+                    Thread clientThread = new Thread(runClient);
+                    clientThread.Start(clientSocket);
+                    threads.Add(clientThread);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e.Message);
             }
-            }
+        }
 
-            public void procesa1Cliente()
+        public void runClient(Object o)
+        {
+            Socket clientSocket = (Socket)o;
+            while (true)
             {
-            }
-
-            public void disparaCliente(Object o)
-            {
-                Socket param = (Socket)o;
-                byte[] enviar = Encoding.ASCII.GetBytes("Hola");
-                param.Send(enviar);
-                byte[] recibir = new byte[1];
-                string recibido = "";
-                param.Receive(recibir, 0);
-                while (recibir[0] != 13)
+                byte[] request = new byte[1024], response;
+                try
                 {
-                    recibido += char.ConvertFromUtf32(recibir[0]);
-                    param.Receive(recibir, 0);
+                    clientSocket.Receive(request);
+                    response = RequestResolver.resolve(request);
+                    if(response == null) clientSocket.Close();
+                    else clientSocket.Send(response);
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
-                Console.WriteLine(recibido);
-                Console.ReadKey();
-            }
+            }           
 
-        
+            Console.ReadKey();
+        }        
     }
 }
 
