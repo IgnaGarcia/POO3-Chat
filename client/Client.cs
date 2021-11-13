@@ -30,7 +30,19 @@ namespace client
             }
         }
 
-        public byte[] Send(Request req)
+        public void Disconnect()
+        {
+            try
+            {
+                client.Close();
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public object Send(Request req)
         {
             byte[] request = BinarySerialization.Serializate(req);
             Console.WriteLine("sending " + req.ToString());
@@ -39,11 +51,11 @@ namespace client
             return Receive();
         }
 
-        public byte[] Receive()
+        public object Receive()
         {
             byte[] response = new byte[1024];
             client.Receive(response);
-            return response;
+            return BinarySerialization.Deserializate(response); ;
         }
     }
 }
