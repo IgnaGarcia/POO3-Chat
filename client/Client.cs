@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace client
 {
@@ -23,7 +18,7 @@ namespace client
             client = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
 
-        public void connect()
+        public void Connect()
         {
             try
             {
@@ -35,20 +30,21 @@ namespace client
             }
         }
 
-        public void send(string msg)
+        public byte[] Send(Request req)
         {
-            byte[] request = Encoding.ASCII.GetBytes(msg);
+            byte[] request = BinarySerialization.Serializate(req);
+            Console.WriteLine("sending " + req.ToString());
             client.Send(request);
+
+            return Receive();
         }
 
-        public string receive()
+        public byte[] Receive()
         {
             byte[] response = new byte[1024];
             client.Receive(response);
-            return Encoding.ASCII.GetString(response);
+            return response;
         }
-
-
     }
 }
 

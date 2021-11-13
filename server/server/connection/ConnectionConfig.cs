@@ -19,20 +19,20 @@
                 + ";";
         }
 
-        private static void createInstance()
+        private static void CreateInstance()
         {
             if (instance == null) instance = new ConnectionConfig();
         }
 
         public static ConnectionConfig getInstance()
         {
-            if (instance == null) createInstance();
+            if (instance == null) CreateInstance();
             return instance;
         }
 
-        public static string getConnectionString()
+        public static string GetConnectionString()
         {
-            createInstance();
+            CreateInstance();
             return instance.dbserv;
         }
     }

@@ -1,18 +1,24 @@
-﻿namespace server.user
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace client.entities
 {
     [Serializable]
-    internal class User
+    internal class Chat
     {
         private int? id;
         private string name;
 
-        public User(int id, string name)
+        public Chat(int id, string name)
         {
             this.id = id;
             this.name = name;
         }
 
-        public User(string name)
+        public Chat(string name)
         {
             this.id = null;
             this.name = name;
@@ -20,7 +26,7 @@
 
         public string ToString()
         {
-            return "User(id=" + id + "; name=" + name + ");";
+            return "Chat(id=" + id + "; name=" + name + ");";
         }
 
         public string GetName() { return name; }

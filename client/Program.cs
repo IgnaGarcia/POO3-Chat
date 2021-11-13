@@ -1,24 +1,22 @@
 ﻿using client;
 
 Client client = new Client();
-client.connect();
+client.Connect();
 
-client.send("000");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(0)));
 
-client.send("001");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(1, "nacho")));
 
-client.send("002");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(2, "datazo")));
 
-client.send("003");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(3)));
 
-client.send("004");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(4, 1)));
 
-client.send("005");
-Console.WriteLine(client.receive());
+Console.WriteLine(client.Send(new Request(5, 1, 1, "nacho", "probando probando")));
 
-client.send("006");
+Console.WriteLine(client.Send(new Request(6)));
+
+Console.WriteLine(client.Send(new Request(8, 1, 1)));
+
+Console.WriteLine(client.Send(new Request(7, 1, 1)));

@@ -8,18 +8,18 @@ namespace server.user
     {
         public UserTable() : base() { }
 
-        public List<User> getAll()
+        public List<User> GetAll()
         {
             List<User> list = new List<User>();
             string query = "SELECT * FROM \"user\";";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    list.Add(toUser(reader));
+                    list.Add(ToUser(reader));
                 }
             }
             catch (Exception ex)
@@ -30,17 +30,17 @@ namespace server.user
             return list;
         }
 
-        public User? getById(int id)
+        public User? GetById(int id)
         {
             string query = "SELECT * FROM \"user\" WHERE \"id\" = " + id + ";";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return toUser(reader);
+                    return ToUser(reader);
                 }
             }
             catch (Exception ex)
@@ -49,17 +49,17 @@ namespace server.user
             }
             return null;
         }
-        public User? getByName(string name)
+        public User? GetByName(string name)
         {
             string query = "SELECT * FROM \"user\" WHERE \"name\" ILIKE '" + name + "';";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return toUser(reader);
+                    return ToUser(reader);
                 }
             }
             catch (Exception ex)
@@ -69,10 +69,10 @@ namespace server.user
             return null;
         }
 
-        public int create(User user)
+        public int Create(User user)
         {
-            string query = "INSERT INTO \"user\"(name) VALUES ('" + user.getName() + "');";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            string query = "INSERT INTO \"user\"(name) VALUES ('" + user.GetName() + "');";
+            command = new NpgsqlCommand(query, GetSqlConnection());
             try
             {
                 int rowsAffected = command.ExecuteNonQuery();
@@ -85,7 +85,7 @@ namespace server.user
             return -1;
         }
 
-        private User toUser(IDataRecord result)
+        private User ToUser(IDataRecord result)
         {
             return new User(
                 Int32.Parse(result["id"].ToString()),

@@ -9,18 +9,18 @@ namespace server.message
         NpgsqlCommand command;
         public MessageTable() : base() { }
 
-        public List<Message> getByChat(int chatId)
+        public List<Message> GetByChat(int chatId)
         {
             List<Message> list = new List<Message>();
             string query = "SELECT * FROM \"message\" WHERE chat_id = "+ chatId +";";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    list.Add(toMessage(reader));
+                    list.Add(ToMessage(reader));
                 }
             }
             catch (Exception ex)
@@ -31,11 +31,11 @@ namespace server.message
             return list;
         }
 
-        public int create(Message message)
+        public int Create(Message message)
         {
-            string query = "INSERT INTO \"message\"(chat_id, from_id, message) VALUES (" + 
-                message.getChatId() + ","+ message.getFromId() + ",'" + message.getMessage() +"');";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            string query = "INSERT INTO \"message\"(chat_id, from_id, from_name, message) VALUES (" + 
+                message.GetChatId() + ","+ message.GetFromId() + ",'" + message.GetFromName() + ",'" + message.GetMessage() +"');";
+            command = new NpgsqlCommand(query, GetSqlConnection());
             try
             {
                 int rowsAffected = command.ExecuteNonQuery();
@@ -48,12 +48,13 @@ namespace server.message
             return -1;
         }
 
-        private Message toMessage(IDataRecord result)
+        private Message ToMessage(IDataRecord result)
         {
             return new Message(
                 Int32.Parse(result["id"].ToString()),
                 Int32.Parse(result["chat_id"].ToString()),
                 Int32.Parse(result["from_id"].ToString()),
+                result["from_name"].ToString(),
                 result["message"].ToString(),
                 Convert.ToDateTime(result["create_date"].ToString())
             );

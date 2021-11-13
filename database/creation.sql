@@ -16,6 +16,7 @@ CREATE TABLE "message"(
 	"id" SERIAL PRIMARY KEY,
 	"chat_id" INT,
 	"from_id" INT,
+	"from_name" VARCHAR(30),
 	"message" VARCHAR(300),
 	"create_date" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY("from_id") REFERENCES "user"("id"),

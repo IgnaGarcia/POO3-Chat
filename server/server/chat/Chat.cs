@@ -1,5 +1,6 @@
 ﻿namespace server.chat
 {
+    [Serializable]
     internal class Chat
     {
         private int? id;
@@ -22,8 +23,8 @@
             return "Chat(id=" + id + "; name=" + name + ");";
         }
 
-        public string getName() { return name; }
+        public string GetName() { return name; }
 
-        public int getId() { return (int)id; }
+        public int GetId() { return (int)id; }
     }
 }

@@ -5,7 +5,12 @@
       "ProjectGuid": "60a57065-6ce1-4c0f-bae0-1bd3dc5a2e11",
       "DisplayName": "server",
       "ColorIndex": 0
+    },
+    "7b05f921-e012-4213-b40e-70bda2a600e1": {
+      "ProjectGuid": "7b05f921-e012-4213-b40e-70bda2a600e1",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

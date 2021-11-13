@@ -9,19 +9,19 @@ namespace server.chat
         NpgsqlCommand command;
         public ChatTable() : base() { }
 
-        public List<Chat> getAll()
+        public List<Chat> GetAll()
         {
             List<Chat> list = new List<Chat>();
             string query = "SELECT * FROM \"chat\";";
 
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    list.Add(toChat(reader));
+                    list.Add(ToChat(reader));
                 }
             }
             catch (Exception ex)
@@ -31,17 +31,17 @@ namespace server.chat
             return list;
         }
 
-        public Chat? getById(int id)
+        public Chat? GetById(int id)
         {
             string query = "SELECT * FROM \"chat\" WHERE \"id\" = " + id + ";";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            command = new NpgsqlCommand(query, GetSqlConnection());
 
             try
             {
                 reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    return toChat(reader);
+                    return ToChat(reader);
                 }
             }
             catch (Exception ex)
@@ -51,10 +51,10 @@ namespace server.chat
             return null;
         }
 
-        public int create(Chat chat)
+        public int Create(Chat chat)
         {
-            string query = "INSERT INTO \"chat\"(name) VALUES ('" + chat.getName() + "');";
-            command = new NpgsqlCommand(query, getSqlConnection());
+            string query = "INSERT INTO \"chat\"(name) VALUES ('" + chat.GetName() + "');";
+            command = new NpgsqlCommand(query, GetSqlConnection());
             try
             {
                 int rowsAffected = command.ExecuteNonQuery();
@@ -67,7 +67,7 @@ namespace server.chat
             return -1;
         }
 
-        private Chat toChat(IDataRecord result)
+        private Chat ToChat(IDataRecord result)
         {
             return new Chat(
                 Int32.Parse(result["id"].ToString()),

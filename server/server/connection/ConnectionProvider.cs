@@ -11,11 +11,11 @@ namespace server.connection
 
         public ConnectionProvider() { }
 
-        public NpgsqlConnection getSqlConnection()
+        public NpgsqlConnection GetSqlConnection()
         {
             try
             {
-                NpgsqlConnection sqlConnection = new NpgsqlConnection(ConnectionConfig.getConnectionString());
+                NpgsqlConnection sqlConnection = new NpgsqlConnection(ConnectionConfig.GetConnectionString());
                 if (sqlConnection.State != ConnectionState.Open)
                 {
                     sqlConnection.Open();
