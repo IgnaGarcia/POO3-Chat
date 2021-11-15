@@ -1,0 +1,13 @@
+D:\OldProyects\poo3\c#\chat\ChatEntities\bin\Release\net6.0\ChatEntities.deps.json
+D:\OldProyects\poo3\c#\chat\ChatEntities\bin\Release\net6.0\ChatEntities.dll
+D:\OldProyects\poo3\c#\chat\ChatEntities\bin\Release\net6.0\ref\ChatEntities.dll
+D:\OldProyects\poo3\c#\chat\ChatEntities\bin\Release\net6.0\ChatEntities.pdb
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.GlobalUsings.g.cs
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.csproj.AssemblyReference.cache
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.GeneratedMSBuildEditorConfig.editorconfig
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.AssemblyInfoInputs.cache
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.AssemblyInfo.cs
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.csproj.CoreCompileInputs.cache
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.dll
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ref\ChatEntities.dll
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.pdb

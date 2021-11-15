@@ -1,6 +1,0 @@
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.GlobalUsings.g.cs
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.csproj.AssemblyReference.cache
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.GeneratedMSBuildEditorConfig.editorconfig
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.AssemblyInfoInputs.cache
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.AssemblyInfo.cs
-D:\OldProyects\poo3\c#\chat\server\server\obj\Release\net6.0\server.csproj.CoreCompileInputs.cache
