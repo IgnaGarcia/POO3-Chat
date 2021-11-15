@@ -4,7 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ChatEntities">
+      <HintPath>..\ChatEntities\bin\Release\net6.0\ChatEntities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
