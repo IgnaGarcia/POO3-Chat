@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -93,6 +94,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panel3.Controls.Add(this.labelUsername);
             this.panel3.Controls.Add(this.btnExit);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -110,6 +112,16 @@
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelUsername.Location = new System.Drawing.Point(100, 0);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(782, 35);
+            this.labelUsername.TabIndex = 1;
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // ChatListView
             // 
@@ -136,5 +148,6 @@
         private System.Windows.Forms.ListBox listChat;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label labelUsername;
     }
 }

@@ -10,6 +10,7 @@ namespace ChatClient.views
     {
         Client client;
         User user;
+        List<Chat> listaDeChats;
         public ChatListView(Client client, User user)
         {
             this.client = client;
@@ -23,7 +24,7 @@ namespace ChatClient.views
         {
             string chatname = listChat.Items[listChat.SelectedIndex].ToString()!;
             Hide();
-            ChatView chatView = new ChatView(client, chatname, user);
+            ChatView chatView = new ChatView(client, listaDeChats[listChat.SelectedIndex], user);
             chatView.Show();
         }
 
@@ -40,7 +41,8 @@ namespace ChatClient.views
             {
                 if (o is List<Chat>)
                 {
-                    ((List<Chat>)o).ForEach(el => listChat.Items.Add(el.GetName()));
+                    listaDeChats = (List<Chat>)o
+                    listaDeChats!.ForEach(el => listChat.Items.Add(el.GetName()));
                 }
             }));
         }

@@ -7,16 +7,16 @@ namespace ChatClient.views
 {
     public partial class ChatView : Form
     {
-        string chatName;
+        Chat chat;
         User user;
         Client client;
-        public ChatView(Client client, string chatName, User user)
+        public ChatView(Client client, Chat chat, User user)
         {
-            this.chatName = chatName;
+            this.chat = chat;
             this.user = user;
             this.client = client;
             InitializeComponent();
-            labelChatName.Text = chatName;
+            labelChatName.Text = chat.GetName();
             listUser.Items.Add("["+user.GetName()+"]");
             listUser.Items.Add("user2");
             listUser.Items.Add("user3");
