@@ -6,6 +6,7 @@
         public int code;
         public string status;
         public User? user = null;
+        public Chat? chat = null;
         public List<Chat>? chatList = null;
         public List<Message>? messageList = null;
         public Message? message = null;
@@ -20,6 +21,12 @@
             : this(code, status)
         {
             this.user = user;
+        }
+
+        public Response(int code, string status, Chat? chat)
+            : this(code, status)
+        {
+            this.chat = chat;
         }
 
         public Response(int code, string status, List<Chat>? chatList) 

@@ -51,6 +51,26 @@ namespace ChatServer.orm
             return null;
         }
 
+        public Chat? GetByName(string name)
+        {
+            string query = "SELECT * FROM \"chat\" WHERE \"name\" ILIKE '" + name + "';";
+            command = new NpgsqlCommand(query, GetSqlConnection());
+
+            try
+            {
+                reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return ToChat(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
         public int Create(Chat chat)
         {
             string query = "INSERT INTO \"chat\"(name) VALUES ('" + chat.GetName() + "');";

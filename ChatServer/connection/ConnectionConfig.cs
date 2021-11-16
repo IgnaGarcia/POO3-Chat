@@ -11,7 +11,7 @@
             string server = "localhost";
             string user = "postgres";
             string password = "admin";
-            string database = "chat";
+            string database = "Chat";
             dbserv = "Server = " + server
                 + "; User Id = " + user
                 + "; Password = " + password
