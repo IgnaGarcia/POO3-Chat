@@ -19,4 +19,11 @@ D:\OldProyects\poo3\c#\chat\ChatClient\obj\Debug\net6.0-windows\ChatClient.views
 D:\OldProyects\poo3\c#\chat\ChatClient\obj\Debug\net6.0-windows\ChatClient.views.ChatView.resources
 D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\ChatEntities.dll
 D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\ChatEntities.pdb
-D:\OldProyects\poo3\c#\chat\ChatClient\obj\Debug\net6.0-windows\ChatClient.csproj.CopyComplete
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Authorization.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Components.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Metadata.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.Extensions.Options.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+D:\OldProyects\poo3\c#\chat\ChatClient\bin\Debug\net6.0-windows\System.Runtime.CompilerServices.Unsafe.dll

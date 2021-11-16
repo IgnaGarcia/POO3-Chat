@@ -7,8 +7,13 @@ using System.Threading;
 
 namespace ChatClient.client
 {
-    internal class Client
+    public class Client
     {
+        public delegate void UpdateDelegate(object o);
+        public UpdateDelegate onUpdateUser;
+        public UpdateDelegate onUpdateChatList;
+        public UpdateDelegate onUpdateMessages;
+
         IPHostEntry ipHostInfo;
         IPAddress ipAddress;
         IPEndPoint localEndPoint;
@@ -29,6 +34,7 @@ namespace ChatClient.client
             {
                 client.Connect(localEndPoint);
                 threadListener = new Thread(Listen);
+                threadListener.SetApartmentState(ApartmentState.STA);
                 threadListener.Start();
             }
             catch (Exception e)
@@ -43,6 +49,14 @@ namespace ChatClient.client
             while (true)
             {
                 response = (Response)Receive();
+                if(response.code == 1 || response.code == 2)
+                {
+                    onUpdateUser(response.user);
+                } else if(response.code == 3)
+                {
+                    onUpdateChatList(response.chatList);
+                }
+
                 Console.WriteLine(response.ToString());
             }
         }

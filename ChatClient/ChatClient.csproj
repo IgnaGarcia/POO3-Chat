@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="ChatEntities">
       <HintPath>..\ChatEntities\bin\Release\net6.0\ChatEntities.dll</HintPath>
     </Reference>

@@ -51,7 +51,8 @@ namespace ChatServer.server
             int created = new UserTable().Create(new User(username));
 
             string status = created == 1 ? "succes: user created" : "error: user not created";
-            response = new Response(2, status);
+            User? user = new UserTable().GetByName(username);
+            response = new Response(2, status, user);
             client.Send(Serializate(response));
         }
 
