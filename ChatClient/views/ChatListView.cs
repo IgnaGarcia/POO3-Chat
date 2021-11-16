@@ -30,6 +30,11 @@ namespace ChatClient.views
         private void btnExit_Click(object sender, EventArgs e)
         {
             Hide();
+            //string username = user.GetName();
+
+            //if (username != null && username != "")
+            //    client.Send(new Request(6, username));
+
             LoginView loginView = new LoginView(client);
             loginView.Show();
         }

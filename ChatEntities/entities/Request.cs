@@ -6,6 +6,7 @@
         public int code;
         public string username = "";
         public int chatId = 0;
+        public string chatname = "";
         public int userId = 0;
         public string message = "";
 
@@ -20,6 +21,12 @@
             this.username = username;
         }
 
+        public Request(int code,int chatId, string chatname)
+        {
+            this.code = code;
+            this.chatId = chatId;
+            this.chatname = chatname;
+        }
         public Request(int code, int chatId)
         {
             this.code = code;
@@ -44,7 +51,7 @@
 
         override public string ToString()
         {
-            return "Request(" + code + "," + userId + "," + username + "," + chatId + "," + message + ")";
+            return "Request(" + code + "," + userId + "," + username + "," + chatId + "," + chatname + "," + message + ")";
         }
     }
 }

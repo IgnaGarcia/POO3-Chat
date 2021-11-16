@@ -24,6 +24,7 @@ namespace ChatServer.server
             else if (code == 6) { ResolveExit(client); }
             else if (code == 7) { ResolveExitFromChat(client, request.chatId, request.userId); }
             else if (code == 8) { ResolveConnectToChat(client, request.chatId, request.userId); }
+            //else if (code == 9) { ResolveCreateChat(client, request.chatId, request.chatname); }
             else { ResolveDefault(client); }
         }
 
@@ -143,6 +144,17 @@ namespace ChatServer.server
 
             string status = user == null ? "succes: connected to chat" : "error: user not found";
             response = new Response(8, status);
+            client.Send(Serializate(response));
+        }
+
+        private void ResolveCreateChat(Socket client,int chatId ,string chatname)
+        {
+            Console.WriteLine("\t- creatChat ="+chatname);
+            int created = new ChatTable().Create(new Chat(chatname));
+
+            string status = created == 1 ? "success: chat created" : "error: user not created";
+            Chat? chat = new ChatTable().GetByName(chatname);
+            //response = new Response(9, status, chat);
             client.Send(Serializate(response));
         }
 
