@@ -4,6 +4,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace ChatClient.client
 {
@@ -13,6 +14,7 @@ namespace ChatClient.client
         public UpdateDelegate onUpdateUser;
         public UpdateDelegate onUpdateChatList;
         public UpdateDelegate onUpdateMessages;
+        public UpdateDelegate onUpdateChat;
 
         IPHostEntry ipHostInfo;
         IPAddress ipAddress;
@@ -48,16 +50,32 @@ namespace ChatClient.client
             Response response;
             while (true)
             {
+                
                 response = (Response)Receive();
-                if(response.code == 1 || response.code == 2)
+                if(response == null)
+                {
+                    MessageBox.Show("error al conectarse con el servidor");
+                } 
+                else if(response.code == 1 || response.code == 2)
                 {
                     onUpdateUser(response.user);
-                } else if(response.code == 3)
+                } 
+                else if(response.code == 3)
                 {
                     onUpdateChatList(response.chatList);
+                } 
+                else if(response.code == 4 || response.code == 5)
+                {
+                    if(response.message != null)
+                    {
+                        MessageBox.Show(response.message.ToString());
+                        onUpdateMessages(response.message);
+                    }
                 }
-
-                Console.WriteLine(response.ToString());
+                else if(response.code == 9)
+                {
+                    onUpdateChat(response.chat);
+                }
             }
         }
 
@@ -77,14 +95,27 @@ namespace ChatClient.client
         {
             byte[] request = BinarySerialization.Serializate(req);
             Console.WriteLine("sending " + req.ToString());
-            client.Send(request);
+            try
+            {
+                client.Send(request);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public object Receive()
         {
             byte[] response = new byte[1024];
-            client.Receive(response);
-            return BinarySerialization.Deserializate(response); ;
+            try
+            {
+                client.Receive(response);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return BinarySerialization.Deserializate(response);
         }
     }
 }

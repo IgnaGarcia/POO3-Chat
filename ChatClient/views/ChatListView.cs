@@ -10,33 +10,39 @@ namespace ChatClient.views
     {
         Client client;
         User user;
-        List<Chat> listaDeChats;
+        List<Chat> chatList;
         public ChatListView(Client client, User user)
         {
             this.client = client;
-            client.onUpdateChatList = UpdateChatList;
-            client.Send(new Request(3));
             this.user = user;
+
+            client.onUpdateChatList = UpdateChatList;
+            client.onUpdateChat = UpdateChat;
+
+            client.Send(new Request(3));
+
             InitializeComponent();
         }
 
         private void listChat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string chatname = listChat.Items[listChat.SelectedIndex].ToString()!;
-            Hide();
-            ChatView chatView = new ChatView(client, listaDeChats[listChat.SelectedIndex], user);
-            chatView.Show();
+            try
+            {
+                Hide();
+                ChatView chatView = new ChatView(client, chatList[viewListChat.SelectedIndex], user, chatList);
+                chatView.Show();
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Hide();
-            //string username = user.GetName();
-
-            //if (username != null && username != "")
-            //    client.Send(new Request(6, username));
-
-            LoginView loginView = new LoginView(client);
+            client.Send(new Request(6));
+            client.Disconnect();
+            LoginView loginView = new LoginView();
             loginView.Show();
         }
 
@@ -46,10 +52,21 @@ namespace ChatClient.views
             {
                 if (o is List<Chat>)
                 {
-                    listaDeChats = (List<Chat>)o
-                    listaDeChats!.ForEach(el => listChat.Items.Add(el.GetName()));
+                    chatList = (List<Chat>)o;
+                    chatList.ForEach(el => viewListChat.Items.Add(el.GetName()));
                 }
             }));
         }
+        public void UpdateChat(object o)
+        {
+            BeginInvoke(new Action(() =>
+            {
+                if (o is Chat)
+                {
+                    viewListChat.Items.Add(((Chat)o).GetName());
+                }
+            }));
+        }
+
     }
 }

@@ -8,27 +8,15 @@ namespace ChatClient.views
     public partial class LoginView : Form
     {
         Client client;
-        User _user;
-        User user
-        {
-            set
-            {
-                if (value != null)
-                {
-                    _user = value;
-                }
-            }
-            get { return _user; }
-        }
+        User user;
 
-        public LoginView(Client client)
+        public LoginView()
         {
-            this.client = client;
+            this.client = new Client();
             client.onUpdateUser = UpdateUser;
             client.Connect();
             InitializeComponent();
         }
-        public LoginView() : this(new Client()){ }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

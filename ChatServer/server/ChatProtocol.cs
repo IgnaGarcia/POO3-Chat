@@ -1,5 +1,6 @@
 ﻿using ChatEntities.entities;
 using ChatEntities.serializer;
+using ChatServer.orm;
 using System.Net;
 using System.Net.Sockets;
 
@@ -16,7 +17,7 @@ namespace ChatServer.server
         Socket server;
         Thread threadListener;
 
-        //public Dictionary<int, Dictionary<User, Socket>> usersInChats;
+        public Dictionary<int, Dictionary<User, Socket>> usersInChats;
         RequestResolver requestResolver;
 
         private ChatProtocol()
@@ -33,10 +34,10 @@ namespace ChatServer.server
             threadListener = new Thread(Listen);
             threadListener.Start();
 
-            /*usersInChats = new Dictionary<int, Dictionary<user.User, Socket>>();
+            usersInChats = new Dictionary<int, Dictionary<User, Socket>>();
             new ChatTable().GetAll().ForEach(chat => 
-                usersInChats.Add(chat.GetId(), new Dictionary<user.User, Socket>())
-            );*/
+                usersInChats.Add(chat.GetId(), new Dictionary<User, Socket>())
+            );
         }
 
         private static void CreateInstance()
@@ -100,6 +101,35 @@ namespace ChatServer.server
             client.Receive(request);
             object serialized = BinarySerialization.Deserializate(request);
             return serialized;
+        }
+
+        public static void AddChat(Chat? chat)
+        {
+            if(chat != null)
+            {
+                GetInstance().usersInChats.Add(chat.GetId(), new Dictionary<User, Socket>());
+            }
+        }
+
+        public static void AddUserToChat(int chatId, User? user, Socket client)
+        {
+            if (user != null)
+            {
+                GetInstance().usersInChats[chatId].Add(user, client);
+            }
+        }
+        public static int DeleteUserFromChat(int chatId, int userId)
+        {
+            
+            foreach (var item in GetInstance().usersInChats[chatId])
+            {
+                if (item.Key.GetId() == userId)
+                {
+                    GetInstance().usersInChats[chatId].Remove(item.Key);
+                    break;
+                }
+            }
+            return 0;
         }
     }
 }

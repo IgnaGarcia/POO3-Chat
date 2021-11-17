@@ -24,7 +24,7 @@ namespace ChatServer.server
             else if (code == 6) { ResolveExit(client); }
             else if (code == 7) { ResolveExitFromChat(client, request.chatId, request.userId); }
             else if (code == 8) { ResolveConnectToChat(client, request.chatId, request.userId); }
-            //else if (code == 9) { ResolveCreateChat(client, request.chatId, request.chatname); }
+            else if (code == 9) { ResolveCreateChat(client, request.chatId, request.chatname); }
             else { ResolveDefault(client); }
         }
 
@@ -87,7 +87,7 @@ namespace ChatServer.server
             string status = created == 1 ? "succes: message created" : "error: message not sent";
             response = new Response(5, status);
             client.Send(Serializate(response));
-            /*
+
             if (created == 1)
             {
                 foreach (var item in ChatProtocol.GetInstance().usersInChats[chatId])
@@ -96,7 +96,6 @@ namespace ChatServer.server
                     item.Value.Send(Serializate(response));
                 }
             }
-            */
         }
 
         private void ResolveExit(Socket client)
@@ -108,53 +107,39 @@ namespace ChatServer.server
         private void ResolveExitFromChat(Socket client, int chatId, int userId)
         {
             Console.WriteLine("\t-"+userId+" exitFromChat "+chatId);
-            User? user = null;
 
-            /*
-            foreach (var item in ChatProtocol.GetInstance().usersInChats[chatId])
-            {
-                if (item.Key.GetId() == userId)
-                {
-                    user = item.Key;
-                    break;
-                }
-            }
-            if (user != null)
-            {
-                ChatProtocol.GetInstance().usersInChats[chatId].Remove(user);
-            } 
-            */
+            int res = ChatProtocol.DeleteUserFromChat(chatId, userId);
 
-            string status = user == null ? "succes: disconnected from chat" : "error: user not found";
+            string status = res != null ? "succes: disconnected from chat" : "error: user not found";
             response = new Response(7, status);
             client.Send(Serializate(response));
         }
 
         private void ResolveConnectToChat(Socket client, int chatId, int userId)
         {
-            Console.WriteLine("\t-"+userId+" connectToChat = "+chatId);
+            Console.WriteLine("\t- "+userId+" connectToChat = "+chatId);
             User? user = new UserTable().GetById(userId);
 
+            ChatProtocol.AddUserToChat(chatId, user, client);
+    
             /*
-            if(user != null)
-            {
-                ChatProtocol.GetInstance().usersInChats[chatId].Add(user, client);
-            } 
-            */
-
-            string status = user == null ? "succes: connected to chat" : "error: user not found";
+            string status = user != null ? "succes: connected to chat" : "error: user not found";
             response = new Response(8, status);
             client.Send(Serializate(response));
+            */
+
+            ResolveGetMessagesByChat(client, chatId);
         }
 
         private void ResolveCreateChat(Socket client,int chatId ,string chatname)
         {
-            Console.WriteLine("\t- creatChat ="+chatname);
+            Console.WriteLine("\t- creatChat = "+chatname);
             int created = new ChatTable().Create(new Chat(chatname));
 
             string status = created == 1 ? "success: chat created" : "error: user not created";
             Chat? chat = new ChatTable().GetByName(chatname);
-            //response = new Response(9, status, chat);
+            ChatProtocol.AddChat(chat);
+            response = new Response(9, status, chat);
             client.Send(Serializate(response));
         }
 

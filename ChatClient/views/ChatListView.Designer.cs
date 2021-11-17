@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listChat = new System.Windows.Forms.ListBox();
+            this.viewListChat = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.labelUsername = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -44,7 +44,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.listChat);
+            this.panel1.Controls.Add(this.viewListChat);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,20 +52,20 @@
             this.panel1.Size = new System.Drawing.Size(300, 611);
             this.panel1.TabIndex = 0;
             // 
-            // listChat
+            // viewListChat
             // 
-            this.listChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.listChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listChat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listChat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listChat.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.listChat.FormattingEnabled = true;
-            this.listChat.ItemHeight = 21;
-            this.listChat.Location = new System.Drawing.Point(0, 35);
-            this.listChat.Name = "listChat";
-            this.listChat.Size = new System.Drawing.Size(298, 574);
-            this.listChat.TabIndex = 1;
-            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
+            this.viewListChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.viewListChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.viewListChat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewListChat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.viewListChat.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.viewListChat.FormattingEnabled = true;
+            this.viewListChat.ItemHeight = 21;
+            this.viewListChat.Location = new System.Drawing.Point(0, 35);
+            this.viewListChat.Name = "viewListChat";
+            this.viewListChat.Size = new System.Drawing.Size(298, 574);
+            this.viewListChat.TabIndex = 1;
+            this.viewListChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -102,6 +102,15 @@
             this.panel3.Size = new System.Drawing.Size(882, 35);
             this.panel3.TabIndex = 0;
             // 
+            // labelUsername
+            // 
+            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelUsername.Location = new System.Drawing.Point(100, 0);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(782, 35);
+            this.labelUsername.TabIndex = 1;
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnExit
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Left;
@@ -112,16 +121,6 @@
             this.btnExit.Text = "Salir";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // labelUsername
-            // 
-            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelUsername.Location = new System.Drawing.Point(100, 0);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(782, 35);
-            this.labelUsername.TabIndex = 1;
-            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // ChatListView
             // 
@@ -145,7 +144,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listChat;
+        private System.Windows.Forms.ListBox viewListChat;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label labelUsername;

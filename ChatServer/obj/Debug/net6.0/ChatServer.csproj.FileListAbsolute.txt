@@ -14,7 +14,6 @@ D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.GeneratedMSBu
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.AssemblyInfoInputs.cache
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.AssemblyInfo.cs
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.csproj.CoreCompileInputs.cache
-D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.csproj.CopyComplete
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.dll
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ref\ChatServer.dll
 D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SgbI2XidmKxrKjzqMFzHoSmtBq8+PeMd9I9dwIFEidHZ5QldxUvLVkkW1/MJXa4DX86s2zBJ1uhG3y3mqGaevA==",
+  "dgSpecHash": "WsjGPX/16n9Dls9tT30yLd56oY2xDY9DTVHGrGsw0pe7N69+fHPepr5uU96nfuEyQH+yH+AlO4n1irjzYSLNHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\ChatEntities.csproj",
+  "projectFilePath": "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\ChatEntities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

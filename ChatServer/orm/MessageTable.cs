@@ -34,7 +34,7 @@ namespace ChatServer.orm
         public int Create(Message message)
         {
             string query = "INSERT INTO \"message\"(chat_id, from_id, from_name, message) VALUES (" + 
-                message.GetChatId() + ","+ message.GetFromId() + ",'" + message.GetFromName() + ",'" + message.GetMessage() +"');";
+                message.GetChatId() + ","+ message.GetFromId() + ",'" + message.GetFromName() + "','" + message.GetMessage() +"');";
             command = new NpgsqlCommand(query, GetSqlConnection());
             try
             {
