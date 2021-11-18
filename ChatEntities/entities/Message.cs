@@ -8,7 +8,7 @@
         private int from_id;
         private string from_name;
         private string message;
-        private DateTime? created_date;
+        private DateTime created_date;
 
         public Message(int id, int chat_id, int from_id, string from_name, string message, DateTime created_date)
         {
@@ -27,7 +27,7 @@
             this.from_id = from_id;
             this.from_name = from_name;
             this.message = message;
-            this.created_date = null;
+            this.created_date = DateTime.Now;
         }
 
         override public string ToString()
@@ -39,5 +39,6 @@
         public int GetFromId() {  return from_id; }
         public string GetFromName() { return from_name; }
         public string GetMessage() {  return message; }
+        public DateTime GetCreatedDate() { return created_date; }
     }
 }

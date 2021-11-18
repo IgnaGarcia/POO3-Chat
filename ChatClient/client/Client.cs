@@ -54,7 +54,6 @@ namespace ChatClient.client
                 response = (Response)Receive();
                 if(response == null)
                 {
-                    MessageBox.Show("error al conectarse con el servidor");
                 } 
                 else if(response.code == 1 || response.code == 2)
                 {
@@ -66,11 +65,10 @@ namespace ChatClient.client
                 } 
                 else if(response.code == 4 || response.code == 5)
                 {
-                    if(response.message != null)
-                    {
-                        MessageBox.Show(response.message.ToString());
+                    if(response.messageList != null)
+                        onUpdateMessages(response.messageList);            
+                    else if(response.message != null) 
                         onUpdateMessages(response.message);
-                    }
                 }
                 else if(response.code == 9)
                 {
@@ -107,7 +105,7 @@ namespace ChatClient.client
 
         public object Receive()
         {
-            byte[] response = new byte[1024];
+            byte[] response = new byte[32000];
             try
             {
                 client.Receive(response);
@@ -115,7 +113,8 @@ namespace ChatClient.client
             {
                 Console.WriteLine(e.Message);
             }
-            return BinarySerialization.Deserializate(response);
+            object o = BinarySerialization.Deserializate(response);
+            return o;
         }
     }
 }

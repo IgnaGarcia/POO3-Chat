@@ -90,10 +90,11 @@ namespace ChatServer.server
 
             if (created == 1)
             {
+                response = new Response(5, status, msg);
+                byte[] res = Serializate(response);
                 foreach (var item in ChatProtocol.GetInstance().usersInChats[chatId])
                 {
-                    response = new Response(5, status, msg);
-                    item.Value.Send(Serializate(response));
+                    item.Value.Send(res);
                 }
             }
         }
@@ -153,7 +154,9 @@ namespace ChatServer.server
 
         private byte[] Serializate(object obj)
         {
-            return BinarySerialization.Serializate(obj);
+            byte[] result = BinarySerialization.Serializate(obj);
+            Console.WriteLine("\t- Sending "+result.Length+" by");
+            return result;
         }
     }
 }

@@ -31,6 +31,10 @@ namespace ChatClient.views
             InitializeComponent();
             labelChatName.Text = chat.GetName();
             loadChats();
+
+            this.Text += " "+chat.GetName();
+            listView1.Columns.Add("", -2, HorizontalAlignment.Left);
+            listView1.View = View.Details;
         }
 
         private void loadChats()
@@ -44,9 +48,11 @@ namespace ChatClient.views
         private void btnSend_Click(object sender, EventArgs e)
         {
             string message = viewMessage.Text.Trim();
-            if(message != null || message != "")
+            Console.WriteLine(message.Length);
+            if(message != null && message != "")
             {
-                client.Send(new Request(5, chat.GetId(), user.GetId(), user.GetName(), message));
+                client.Send(new Request(5, user.GetId(), chat.GetId(), user.GetName(), message));
+                viewMessage.Text = "";
             }
         }
 
@@ -65,20 +71,25 @@ namespace ChatClient.views
                 if (o is ChatEntities.entities.Message)
                 {
                     AddMessage((ChatEntities.entities.Message)o);
+                } else if(o is List<ChatEntities.entities.Message>)
+                {
+                    ((List<ChatEntities.entities.Message>)o).ForEach(el =>
+                        AddMessage(el));
+                    listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                 }
             }));
         }
 
         public void AddMessage(ChatEntities.entities.Message msg)
         {
-            if(msg.GetFromId() == user.GetId()) viewChat.Items.Add(">>"+msg.GetFromId() + ": " + msg.GetMessage());
-            else viewChat.Items.Add(msg.GetFromName() + ": " + msg.GetMessage());
-            /*
-            Label message = new Label();
-            message.ForeColor = (msg.GetFromId() == user.GetId())? Color.Firebrick : Color.Snow;
-            message.Text = msg.GetFromName() + ": " + msg.GetMessage();
-            messagesContainer.Controls.Add(message);
-            */
+            string baseMsg = msg.GetFromName() + "(" + msg.GetCreatedDate() + "): " + msg.GetMessage();
+
+            ListViewItem item = new ListViewItem();
+            item.ForeColor = (msg.GetFromId() == user.GetId()) ? Color.Firebrick : Color.DeepSkyBlue;
+            item.Text = baseMsg;
+            
+            listView1.Items.Add(item);
+                    
         }
 
         public void UpdateChat(object o)
