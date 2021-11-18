@@ -4,9 +4,8 @@
     public class Request
     {
         public int code;
-        public string username = "";
+        public string idName = "";
         public int chatId = 0;
-        public string chatname = "";
         public int userId = 0;
         public string message = "";
 
@@ -18,14 +17,14 @@
         public Request(int code, string username)
         {
             this.code = code;
-            this.username = username;
+            this.idName = username;
         }
 
         public Request(int code,int chatId, string chatname)
         {
             this.code = code;
             this.chatId = chatId;
-            this.chatname = chatname;
+            this.idName = chatname;
         }
         public Request(int code, int chatId)
         {
@@ -45,13 +44,13 @@
             this.code = code;
             this.userId = userId;
             this.chatId = chatId;
-            this.username = username;
+            this.idName = username;
             this.message = message;
         }
 
         override public string ToString()
         {
-            return "Request(" + code + "," + userId + "," + username + "," + chatId + "," + chatname + "," + message + ")";
+            return "Request(" + code + "," + userId + "," + idName + "," + chatId + "," + message + ")";
         }
     }
 }

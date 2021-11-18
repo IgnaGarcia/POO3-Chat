@@ -75,7 +75,8 @@ namespace ChatClient.views
                 {
                     ((List<ChatEntities.entities.Message>)o).ForEach(el =>
                         AddMessage(el));
-                    listView1.Items[listView1.Items.Count - 1].EnsureVisible();
+                    if(listView1.Items.Count > 0)
+                        listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                 }
             }));
         }

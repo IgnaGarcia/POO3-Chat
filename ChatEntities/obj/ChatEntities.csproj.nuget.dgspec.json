@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\ChatEntities.csproj": {}
+    "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\ChatEntities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\ChatEntities.csproj": {
+    "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\ChatEntities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\ChatEntities.csproj",
+        "projectUniqueName": "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\ChatEntities.csproj",
         "projectName": "ChatEntities",
-        "projectPath": "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\ChatEntities.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatEntities\\obj\\",
+        "projectPath": "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\ChatEntities.csproj",
+        "packagesPath": "C:\\Users\\ignag\\.nuget\\packages\\",
+        "outputPath": "D:\\OldProyects\\poo3\\c#\\chat\\ChatEntities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ignag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
         }
       }
     }

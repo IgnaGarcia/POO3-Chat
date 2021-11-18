@@ -10,3 +10,4 @@ D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.csproj.
 D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.dll
 D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ref\ChatEntities.dll
 D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.pdb
+D:\OldProyects\poo3\c#\chat\ChatEntities\obj\Release\net6.0\ChatEntities.csproj.AssemblyReference.cache

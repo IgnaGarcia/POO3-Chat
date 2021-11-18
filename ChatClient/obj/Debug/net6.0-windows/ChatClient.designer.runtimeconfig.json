@@ -4,16 +4,16 @@
     "frameworks": [
       {
         "name": "Microsoft.NETCore.App",
-        "version": "6.0.0"
+        "version": "6.0.0-rc.1.21451.13"
       },
       {
         "name": "Microsoft.WindowsDesktop.App",
-        "version": "6.0.0"
+        "version": "6.0.0-rc.1.21451.3"
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Pablo\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Pablo\\.nuget\\packages"
+      "C:\\Users\\ignag\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ignag\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

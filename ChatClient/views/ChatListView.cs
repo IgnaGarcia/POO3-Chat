@@ -64,6 +64,7 @@ namespace ChatClient.views
                 if (o is Chat)
                 {
                     viewListChat.Items.Add(((Chat)o).GetName());
+                    chatList.Add((Chat)o);
                 }
             }));
         }
@@ -74,6 +75,7 @@ namespace ChatClient.views
             if (chatname != null && chatname != "")
             {
                 client.Send(new Request(9, chatname));
+                createChat.Text = "";
             }
         }
     }

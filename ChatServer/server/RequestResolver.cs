@@ -16,15 +16,15 @@ namespace ChatServer.server
             int code = request.code;
 
             if (code == 0) { ResolvePing(client); }
-            else if (code == 1) { ResolveGetUserByName(client, request.username); }
-            else if (code == 2) { ResolveCreateUser(client, request.username); }
+            else if (code == 1) { ResolveGetUserByName(client, request.idName); }
+            else if (code == 2) { ResolveCreateUser(client, request.idName); }
             else if (code == 3) { ResolveGetAllChats(client); }
             else if (code == 4) { ResolveGetMessagesByChat(client, request.chatId); }
             else if (code == 5) { ResolveSendMessage(client, request); }
             else if (code == 6) { ResolveExit(client); }
             else if (code == 7) { ResolveExitFromChat(client, request.chatId, request.userId); }
             else if (code == 8) { ResolveConnectToChat(client, request.chatId, request.userId); }
-            else if (code == 9) { ResolveCreateChat(client, request.chatname); }
+            else if (code == 9) { ResolveCreateChat(client, request.idName); }
             else { ResolveDefault(client); }
         }
 
@@ -78,7 +78,7 @@ namespace ChatServer.server
             Console.WriteLine("\t- sendMessage");
             int chatId = request.chatId;
             int userId = request.userId;
-            string username = request.username;
+            string username = request.idName;
             string message = request.message;
             Message msg = new Message(chatId, userId, username, message);
 

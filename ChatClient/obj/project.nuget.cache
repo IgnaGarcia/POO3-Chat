@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "H8fNF9Up99Jt/aOrahMMRZN4bO0TZfiGkfytXLTYXsF13NnFCufOHkIstydMiJBf3qAj4R16PK8S5QjuiL+jbw==",
+  "dgSpecHash": "Ll+F6PCKU4lJlCtJVFfcMrkNZN/en88M8xgfNOqyG3yIWlIVHFMASKrraiTBENN+WrctoLeZLdvNONXP7k8Peg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pablo\\C#-Workspace\\POO3-Chat\\ChatClient\\ChatClient.csproj",
+  "projectFilePath": "D:\\OldProyects\\poo3\\c#\\chat\\ChatClient\\ChatClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.0\\microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.0\\microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignag\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

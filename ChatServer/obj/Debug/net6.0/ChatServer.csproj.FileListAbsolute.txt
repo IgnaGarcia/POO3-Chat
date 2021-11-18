@@ -37,3 +37,4 @@ C:\Users\Pablo\C#-Workspace\POO3-Chat\ChatServer\obj\Debug\net6.0\ChatServer.dll
 C:\Users\Pablo\C#-Workspace\POO3-Chat\ChatServer\obj\Debug\net6.0\ref\ChatServer.dll
 C:\Users\Pablo\C#-Workspace\POO3-Chat\ChatServer\obj\Debug\net6.0\ChatServer.pdb
 C:\Users\Pablo\C#-Workspace\POO3-Chat\ChatServer\obj\Debug\net6.0\ChatServer.genruntimeconfig.cache
+D:\OldProyects\poo3\c#\chat\ChatServer\obj\Debug\net6.0\ChatServer.csproj.CopyComplete
