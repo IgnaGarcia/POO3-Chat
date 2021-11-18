@@ -68,5 +68,13 @@ namespace ChatClient.views
             }));
         }
 
+        private void btnCreateChat_Click(object sender, EventArgs e)
+        {
+            string chatname = createChat.Text.Trim();
+            if (chatname != null && chatname != "")
+            {
+                client.Send(new Request(9, chatname));
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace ChatServer.server
             else if (code == 6) { ResolveExit(client); }
             else if (code == 7) { ResolveExitFromChat(client, request.chatId, request.userId); }
             else if (code == 8) { ResolveConnectToChat(client, request.chatId, request.userId); }
-            else if (code == 9) { ResolveCreateChat(client, request.chatId, request.chatname); }
+            else if (code == 9) { ResolveCreateChat(client, request.chatname); }
             else { ResolveDefault(client); }
         }
 
@@ -132,7 +132,7 @@ namespace ChatServer.server
             ResolveGetMessagesByChat(client, chatId);
         }
 
-        private void ResolveCreateChat(Socket client,int chatId ,string chatname)
+        private void ResolveCreateChat(Socket client,string chatname)
         {
             Console.WriteLine("\t- creatChat = "+chatname);
             int created = new ChatTable().Create(new Chat(chatname));

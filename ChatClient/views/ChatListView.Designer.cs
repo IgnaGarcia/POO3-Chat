@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.createChat = new System.Windows.Forms.TextBox();
+            this.btnCreateChat = new System.Windows.Forms.Button();
             this.viewListChat = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,6 +46,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.createChat);
+            this.panel1.Controls.Add(this.btnCreateChat);
             this.panel1.Controls.Add(this.viewListChat);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -51,6 +55,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // createChat
+            // 
+            this.createChat.Location = new System.Drawing.Point(11, 497);
+            this.createChat.Name = "createChat";
+            this.createChat.Size = new System.Drawing.Size(272, 23);
+            this.createChat.TabIndex = 3;
+            // 
+            // btnCreateChat
+            // 
+            this.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnCreateChat.Location = new System.Drawing.Point(69, 542);
+            this.btnCreateChat.Name = "btnCreateChat";
+            this.btnCreateChat.Size = new System.Drawing.Size(154, 34);
+            this.btnCreateChat.TabIndex = 2;
+            this.btnCreateChat.Text = "Crear Chat";
+            this.btnCreateChat.UseVisualStyleBackColor = true;
+            this.btnCreateChat.Click += new System.EventHandler(this.btnCreateChat_Click);
             // 
             // viewListChat
             // 
@@ -133,6 +155,7 @@
             this.Name = "ChatListView";
             this.Text = "Chat - Lista de Chats";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -148,5 +171,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Button btnCreateChat;
+        private System.Windows.Forms.TextBox createChat;
     }
 }
